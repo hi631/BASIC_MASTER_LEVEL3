@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="clkgen_sim/clkgen.vo" type="VERILOG" />
+ <topLevel name="clkgen" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

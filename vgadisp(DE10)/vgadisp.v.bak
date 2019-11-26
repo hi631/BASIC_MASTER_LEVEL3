@@ -1,0 +1,217 @@
+`default_nettype none
+module vgadisp
+(
+	FPGA_CLK1_50, FPGA_CLK2_50, FPGA_CLK3_50,
+	VGA_EN, VGA_HS, VGA_VS, VGA_B, VGA_G, VGA_R,
+	KEY, LED
+);
+
+input				FPGA_CLK1_50, FPGA_CLK2_50, FPGA_CLK3_50;
+output			VGA_EN, VGA_HS, VGA_VS;
+output	[5:0]	VGA_B, VGA_G, VGA_R;
+input		[1:0]	KEY;
+output	[7:0]	LED;
+
+// L3 CRTC Disp
+assign VGA_B[5:0] = disptmgdd && dotfb[0] ? 6'h3f : 6'h00;
+assign VGA_R[5:0] = disptmgdd && dotfb[1] ? 6'h3f : 6'h00; 
+assign VGA_G[5:0] = disptmgdd && dotfb[2] ? 6'h3f : 6'h00; 
+assign VGA_HS = !hsync;
+assign VGA_VS = !vsyncn;
+// Sys.etc
+wire  		clk50,reset;
+wire			clk128,clk64,clk32,clk16,clk08,clk04,clk02,locked;
+reg         reqirq,reqirqc;
+assign reset = !locked || !KEY[0];
+assign clk50 = FPGA_CLK1_50;
+assign VGA_EN = 1'b1;
+assign LED[7:0] = ledcnt[7:0];
+// Crtc
+wire  [2:0]	 drgb,dotfb;
+wire 			 hsync,vsync,hsyncd,vsyncw,vsyncd,cursol,disptmg;
+wire  [13:0] crtmadr;
+wire  [14:0] crtdadr,crtdadr40,crtdadr80;
+wire  [4:0]  crtradr;
+wire 	[15:0] jtagctrl;
+wire	[7:0]	 ledcnt;
+// Addr.Regs
+wire [7:0] dipsw;
+assign dipsw = 8'h03;
+wire [15:0] cpuadr;
+wire [7:0]  cpurdt, cpuwdt,romrdt,ramrdt,ramddt,iordt,fontdt,cramrdt,cramcdt;
+wire [14:0]	romadr;
+wire [1:0]	romofs;
+wire			mvma,mrw;
+reg [7:0]   regkb,scankb;
+reg [7:0]   ramrbf,regmode,reginter,regcreg;
+// Chip Select
+wire			csram,csrom,cscram,cscrtc;
+wire 			csio,cspia,csacia,cskbnmi,csdipsw,csmode,csinter,cscreg,cskb;
+assign romofs[1:0] = cpuadr[14:13] - 2'b01;
+assign romadr[14:0] = {romofs[1:0],cpuadr[12:0]};
+assign csram   = mvma && !cpuadr[15];									// 0000 - 7FFF RAM
+assign csrom   = mvma && cpuadr[15] &&  !csio;						// 8000 - FFFF ROM(xcsio)
+assign cscram  = mvma && (cpuadr[15:14] == 2'b00  || cpuadr[15:10] == 6'b010000) && cpuadr[15:10] != 6'b000000; // 0400 - 43FF
+assign csio    = mvma && (cpuadr[15:8] == 8'hFF) && (cpuadr[15:4] !=12'hFFF); // I/O address
+assign cspia   = csio && cpuadr[7:2] == 6'b110000   ; // FFC0 - FFC3 PIA
+assign csacia  = csio && cpuadr[7:1] == 7'b1100010  ; // FFC4 - FFC5 ACIA
+assign cscrtc  = csio && cpuadr[7:1] == 7'b1100011  ; // FFC6 - FFC7 CRTC
+assign cskbnmi = csio && cpuadr[7:0] == 8'b11001000 ; // FFC8        KBNMI
+assign csdipsw = csio && cpuadr[7:0] == 8'b11001001 ; // FFC9        DIPSWITCH
+assign csmode  = csio && cpuadr[7:0] == 8'b11010000 ; // FFD0        MODE-SEL
+assign csinter = csio && cpuadr[7:0] == 8'b11010110 ; // FFD6        INTERACE-SEL
+assign cscreg  = csio && cpuadr[7:0] == 8'b11011000 ; // FFD8        C-REG-SEL
+assign cskb    = csio && cpuadr[7:0] == 8'b11100000 ; // FFE0        KB.SCAN 
+// MPU Bus.Read
+assign cpurdt = csromb ? romrdt : csramb ? ramrbf :  
+					 cscreg ? regcreg : csdipsw ? dipsw : cskb ? scankb : 
+					 cskbnmi ? 8'h00 : 8'h00;
+// External module					 
+clkgen clkgen (
+		.refclk(clk50), .rst(1'b0), 				// 50MhZ(in) // reset
+		.outclk_0(clk128), .outclk_1(clk64), .outclk_2(clk32), 
+		.outclk_3(clk16),	 .outclk_4(clk08), .outclk_5(clk04), 
+		.outclk_6(clk02),  .locked(locked) );	// locked.export
+
+cpu09 cpu09 (	
+	.clk(clkcpu || cpuwseq[1] || cpuwseq[0]), .rst(reset), .vma(mvma), 
+	.lic_out(), .ifetch(), .opfetch(), .ba(), .bs(),
+	.addr(cpuadr), .rw(mrw), .data_out(cpuwdt), .data_in(cpurdt),
+	.irq(reqirq), .firq(1'b0), .nmi(1'b0), .halt(1'b0), .hold(1'b0) );
+
+L3RAM2	L3RAM2 (
+	.clock ( clk128 ), 
+	.address_a(cpuadr[14:0]), .data_a(cpuwdt), .wren_a(csram && !mrw), .q_a(ramrdt),
+	.address_b(crtdadr[14:0]),.data_b(8'h00), .wren_b(1'b0), .q_b(ramddt));
+
+L3CRAM2	L3CRAM2 (
+	.clock ( clk128  ), 
+	.address_a (cpuadr[13:0] ), .data_a (regcreg), .wren_a (cscram && !mrw), .q_a (cramrdt),
+	.address_b (crtdadr[13:0]), .data_b (8'h00), .wren_b (1'b0), .q_b (cramcdt) );
+
+L3ROM	L3ROM (
+	.clock ( clkcpu ), .address ( romadr ), .q ( romrdt ) );
+
+wire [7:0] fhsel = ramddt;
+wire [3:0] flsel = {crtradr[3],crtradr[2],crtradr[1], !reginter[3]}; 
+L3FONT	L3FONT (
+	.clock ( clkdot), .address ( {fhsel,flsel}), .q ( fontdt ) );
+
+mc6845 mc6845(
+	.CLOCK(clkcrtc), .CLKEN(1'b1), .nRESET(1'b1),
+	.ENABLE(cscrtc), .R_nW(1'b0), .RS(regcrtcrs), .DI(regcrtc), .DO(),
+	.MA(crtmadr), .RA(crtradr),
+	.VSYNC(vsync), .HSYNC(hsync), .DE(disptmg), .CURSOR(cursol), .LPSTB() );
+
+// Clock.Contrl
+wire  clkcpu = clk02; // Max=32MHz 
+wire clkcrtc = regmode[7] ? clk04 : clk02;
+wire clkdot  = regmode[7] ? clk32 : clk16;
+wire [6:0] clksys;
+//always @ (posedge clk64) begin clksys <= clksys + 7'b0000001; end
+reg	csromb,csramb;
+always @ (posedge clkcpu) begin
+	csromb <= csrom; csramb <= csram; ramrbf <= ramrdt;
+end
+reg [1:0] cpuwseq;
+always @ (posedge clkcrtc) begin
+	if(reset)         cpuwseq[1] <= 1'b0;
+	else
+		if(cpuwseq[0]) cpuwseq[1] <= 1'b1;
+		else           cpuwseq[1] <= 1'b0;
+end
+reg [7:0] regcrtc;
+reg       regcrtcrs;
+always @ (posedge clkcpu) begin
+	if(reset)         cpuwseq[0] <= 1'b0;
+	else begin
+		if(cscrtc) begin
+			regcrtc <= cpuwdt; regcrtcrs <= cpuadr[0]; cpuwseq[0] <= 1'b1; end	
+		if(cpuwseq[1]) cpuwseq[0] <= 0;
+	end
+end
+// Make Display Dot.data
+wire [13:0]crtgadr;
+reg  [2:0] 	dotct;
+reg  [7:0]  dpbyter;
+wire [7:0] 	dpbyte;
+wire       	dotdp;
+reg			clkcrtcd,clkcrtcdd,disptmgd,disptmgdd;
+assign crtdadr40 = {({1'b0,crtradr[4:1]} + crtmadr[13:10]) , crtmadr[9:0]}; 
+assign crtdadr80 = {({crtradr[4:1],1'b0} + crtmadr[13:10]) , crtmadr[9:0]}; 
+assign crtdadr   = regmode[7] ? crtdadr80 : crtdadr40;
+assign dpbyte = cramcdt[4] ? ramddt : fontdt; // Bit : CG
+assign dotdp = dpbyter[dotct[2:0]] || cursol;
+assign dotfb = dotdp ? cramcdt[2:0] : regmode[2:0];
+always @ (posedge clkdot) begin
+	disptmgd <= disptmg;disptmgdd <= disptmgd;
+	clkcrtcd <= clkcrtc; clkcrtcdd <= clkcrtcd;
+	if(disptmgd) dotct <= dotct - 3'b001;
+	else         dotct <= 3'b000;
+end
+always @ (posedge clkcrtcdd) begin dpbyter <= dpbyte; end
+
+// Set L3-Regs
+always @ (posedge clkcpu) begin
+	if(mvma)
+		if(!mrw) begin
+			if(csmode)  regmode  <= cpuwdt;
+			if(csinter) reginter <= cpuwdt;
+			if(cscreg)  regcreg  <= cpuwdt;
+			if(cskb)    regkb    <= cpuwdt;
+		end else begin
+			if(cscram)  regcreg  <= cramrdt;
+		end	
+end
+// vsync Adj
+reg vsynct,vsyncn;
+reg [4:0] vsyncdct;
+always @ (posedge hsync) begin
+	if(vsync) vsyncdct <= 5'b00000;
+	else begin
+		if(vsyncdct!=5'h1F) vsyncdct <= vsyncdct + 5'b00001;
+		if(vsyncdct >5'h1C && vsyncdct<5'h1F) vsyncn <= 1'b1;
+		else                                  vsyncn <= 1'b0;
+	end
+end
+// KB Dumy.Input(Data From JTAG)
+wire kbcnt = counter_out[14]; // =0.655ms [12OK]
+wire [7:0] kbdata = jtagctrl[7:0];
+reg  [7:0] kbdatao = 8'h00;
+reg kbcntd;
+reg [3:0] kbudct;
+always @ (posedge clkcpu ) begin
+	if(reset) begin reqirq <= 1'b0; scankb <= 8'hff; kbudct <= 8'h00; end
+	else begin
+		kbcntd <= kbcnt;
+		if(regkb[6] && kbcnt==1'b1 && kbcntd==1'b0) begin // Irq.Enable(SS) 
+			if(kbdata != kbdatao) begin kbudct <= 4'h0;  kbdatao <= kbdata; end
+			if(!kbudct[1]) begin 
+				kbudct <= kbudct + 4'h1;
+				scankb <= kbdata[7:0]; reqirq <= 1'b1;
+			end
+		end
+		if(reqirq && cskb) reqirq <= 1'b0;
+	end
+end
+
+// Debug/Test Program
+qsys_led qsys_led (
+	 .clk_clk(clk64), .led_export (jtagctrl),.sin_export ({12'h000,kbudct}) );
+
+reg	[31:0] counter_out;
+assign ledcnt = counter_out[23:16];
+always @ (posedge clk16) begin counter_out <= #1 counter_out + 1; end 
+
+// VGA.Hard Test.Prog
+//assign VGA_B = drgb[2] ? 6'h3f: 6'h00; 
+//assign VGA_R = drgb[0] ? 6'h3f: 6'h00; 
+//assign VGA_G = drgb[1] ? 6'h3f: 6'h00; 
+//assign VGA_HS = !hsyncd;
+//assign VGA_VS = !vsyncd;
+//vga_gen vga_gen(
+//	.clk(clk50), .reset(1'b1), .hsync(hsyncd), .vsync(vsyncd), .rgb(drgb) );
+
+endmodule 
+
+`default_nettype wire

@@ -1,0 +1,24 @@
+
+WORK > DEFAULT
+DEFAULT:                                   ./libraries/work/                                     
+work:                                      ./libraries/work/                                     
+qsys_led_p2b_adapter:                      ./libraries/qsys_led_p2b_adapter/                     
+qsys_led_b2p_adapter:                      ./libraries/qsys_led_b2p_adapter/                     
+qsys_led_transacto:                        ./libraries/qsys_led_transacto/                       
+qsys_led_p2b:                              ./libraries/qsys_led_p2b/                             
+qsys_led_b2p:                              ./libraries/qsys_led_b2p/                             
+qsys_led_fifo:                             ./libraries/qsys_led_fifo/                            
+qsys_led_timing_adt:                       ./libraries/qsys_led_timing_adt/                      
+qsys_led_jtag_phy_embedded_in_jtag_master: ./libraries/qsys_led_jtag_phy_embedded_in_jtag_master/
+qsys_led_rst_controller:                   ./libraries/qsys_led_rst_controller/                  
+qsys_led_pio_0_s1_translator:              ./libraries/qsys_led_pio_0_s1_translator/             
+qsys_led_master_0_master_translator:       ./libraries/qsys_led_master_0_master_translator/      
+qsys_led_master_0:                         ./libraries/qsys_led_master_0/                        
+qsys_led_pio_0:                            ./libraries/qsys_led_pio_0/                           
+altera:                                    ./libraries/altera/                                   
+lpm:                                       ./libraries/lpm/                                      
+sgate:                                     ./libraries/sgate/                                    
+altera_mf:                                 ./libraries/altera_mf/                                
+altera_lnsim:                              ./libraries/altera_lnsim/                             
+cycloneiii:                                ./libraries/cycloneiii/                               
+LIBRARY_SCAN = TRUE

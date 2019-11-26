@@ -1,0 +1,76 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\kitahard\DE10\vgadisp\qsys_led.qsys --block-symbol-file --output-directory=C:\kitahard\DE10\vgadisp\qsys_led --family="Cyclone V" --part=5CSEBA6U23I7
+Progress: Loading vgadisp/qsys_led.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 17.1]
+Progress: Parameterizing module clk_0
+Progress: Adding led [altera_avalon_pio 17.1]
+Progress: Parameterizing module led
+Progress: Adding master_0 [altera_jtag_avalon_master 17.1]
+Progress: Parameterizing module master_0
+Progress: Adding sin [altera_avalon_pio 17.1]
+Progress: Parameterizing module sin
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\kitahard\DE10\vgadisp\qsys_led.qsys --synthesis=VERILOG --output-directory=C:\kitahard\DE10\vgadisp\qsys_led\synthesis --family="Cyclone V" --part=5CSEBA6U23I7
+Progress: Loading vgadisp/qsys_led.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 17.1]
+Progress: Parameterizing module clk_0
+Progress: Adding led [altera_avalon_pio 17.1]
+Progress: Parameterizing module led
+Progress: Adding master_0 [altera_jtag_avalon_master 17.1]
+Progress: Parameterizing module master_0
+Progress: Adding sin [altera_avalon_pio 17.1]
+Progress: Parameterizing module sin
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys_led: Generating qsys_led "qsys_led" for QUARTUS_SYNTH
+Info: led: Starting RTL generation for module 'qsys_led_led'
+Info: led:   Generation command is [exec C:/app/altera/17.1/quartus/bin64/perl/bin/perl.exe -I C:/app/altera/17.1/quartus/bin64/perl/lib -I C:/app/altera/17.1/quartus/sopc_builder/bin/europa -I C:/app/altera/17.1/quartus/sopc_builder/bin/perl_lib -I C:/app/altera/17.1/quartus/sopc_builder/bin -I C:/app/altera/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/app/altera/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/app/altera/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=qsys_led_led --dir=C:/Users/kitahara/AppData/Local/Temp/alt8157_1547295116546418194.dir/0048_led_gen/ --quartus_dir=C:/app/altera/17.1/quartus --verilog --config=C:/Users/kitahara/AppData/Local/Temp/alt8157_1547295116546418194.dir/0048_led_gen//qsys_led_led_component_configuration.pl  --do_build_sim=0  ]
+Info: led: Done RTL generation for module 'qsys_led_led'
+Info: led: "qsys_led" instantiated altera_avalon_pio "led"
+Info: master_0: "qsys_led" instantiated altera_jtag_avalon_master "master_0"
+Info: sin: Starting RTL generation for module 'qsys_led_sin'
+Info: sin:   Generation command is [exec C:/app/altera/17.1/quartus/bin64/perl/bin/perl.exe -I C:/app/altera/17.1/quartus/bin64/perl/lib -I C:/app/altera/17.1/quartus/sopc_builder/bin/europa -I C:/app/altera/17.1/quartus/sopc_builder/bin/perl_lib -I C:/app/altera/17.1/quartus/sopc_builder/bin -I C:/app/altera/17.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/app/altera/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/app/altera/17.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=qsys_led_sin --dir=C:/Users/kitahara/AppData/Local/Temp/alt8157_1547295116546418194.dir/0049_sin_gen/ --quartus_dir=C:/app/altera/17.1/quartus --verilog --config=C:/Users/kitahara/AppData/Local/Temp/alt8157_1547295116546418194.dir/0049_sin_gen//qsys_led_sin_component_configuration.pl  --do_build_sim=0  ]
+Info: sin: Done RTL generation for module 'qsys_led_sin'
+Info: sin: "qsys_led" instantiated altera_avalon_pio "sin"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "qsys_led" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: rst_controller: "qsys_led" instantiated altera_reset_controller "rst_controller"
+Info: jtag_phy_embedded_in_jtag_master: "master_0" instantiated altera_jtag_dc_streaming "jtag_phy_embedded_in_jtag_master"
+Info: timing_adt: "master_0" instantiated timing_adapter "timing_adt"
+Info: fifo: "master_0" instantiated altera_avalon_sc_fifo "fifo"
+Info: b2p: "master_0" instantiated altera_avalon_st_bytes_to_packets "b2p"
+Info: p2b: "master_0" instantiated altera_avalon_st_packets_to_bytes "p2b"
+Info: transacto: "master_0" instantiated altera_avalon_packets_to_master "transacto"
+Info: b2p_adapter: "master_0" instantiated channel_adapter "b2p_adapter"
+Info: p2b_adapter: "master_0" instantiated channel_adapter "p2b_adapter"
+Info: master_0_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "master_0_master_translator"
+Info: led_s1_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "led_s1_translator"
+Info: master_0_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "master_0_master_agent"
+Info: led_s1_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "led_s1_agent"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: master_0_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "master_0_master_limiter"
+Info: Reusing file C:/kitahard/DE10/vgadisp/qsys_led/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: Reusing file C:/kitahard/DE10/vgadisp/qsys_led/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/kitahard/DE10/vgadisp/qsys_led/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: qsys_led: Done "qsys_led" with 27 modules, 42 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

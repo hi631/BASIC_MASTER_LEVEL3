@@ -1,0 +1,427 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Report</title>
+  <style type="text/css">
+body { font-family:arial ;}
+a { text-decoration:underline ; color:#003000 ;}
+a:hover { text-decoration:underline ; color:0030f0 ;}
+td { padding : 5px ;}
+table.topTitle { width:100% ;}
+table.topTitle td.l { text-align:left ; font-weight: bold ; font-size:30px ;}
+table.topTitle td.r { text-align:right ; font-weight: bold ; font-size:16px ;}
+table.blueBar { width : 100% ; border-spacing : 0px ;}
+table.blueBar td { background:#0036ff ; font-size:12px ; color : white ; text-align : left ; font-weight : bold ;}
+table.blueBar td.l { text-align : left ;}
+table.blueBar td.r { text-align : right ;}
+table.items { width:100% ; border-collapse:collapse ;}
+table.items td.label { font-weight:bold ; font-size:16px ; vertical-align:top ;}
+table.items td.mono { font-family:courier ; font-size:12px ; white-space:pre ;}
+div.label { font-weight:bold ; font-size:16px ; vertical-align:top ; text-align:center ;}
+table.grid { border-collapse:collapse ;}
+table.grid td { border:1px solid #bbb ; font-size:12px ;}
+body { font-family:arial ;}
+table.x { font-family:courier ; border-collapse:collapse ; padding:2px ;}
+table.x td { border:1px solid #bbb ;}
+td.tableTitle { font-weight:bold ; text-align:center ;}
+table.grid { border-collapse:collapse ;}
+table.grid td { border:1px solid #bbb ;}
+table.grid td.tableTitle { font-weight:bold ; text-align:center ;}
+table.mmap { border-collapse:collapse ; text-size:11px ; border:1px solid #d8d8d8 ;}
+table.mmap td { border-color:#d8d8d8 ; border-width:1px ; border-style:solid ;}
+table.mmap td.empty { border-style:none ; background-color:#f0f0f0 ;}
+table.mmap td.slavemodule { text-align:left ; font-size:11px ; border-style:solid solid none solid ;}
+table.mmap td.slavem { text-align:right ; font-size:9px ; font-style:italic ; border-style:none solid none solid ;}
+table.mmap td.slaveb { text-align:right ; font-size:9px ; font-style:italic ; border-style:none solid solid solid ;}
+table.mmap td.mastermodule { text-align:center ; font-size:11px ; border-style:solid solid none solid ;}
+table.mmap td.masterlr { text-align:center ; font-size:9px ; font-style:italic ; border-style:none solid solid solid ;}
+table.mmap td.masterl { text-align:center ; font-size:9px ; font-style:italic ; border-style:none none solid solid ;}
+table.mmap td.masterm { text-align:center ; font-size:9px ; font-style:italic ; border-style:none none solid none ;}
+table.mmap td.masterr { text-align:center ; font-size:9px ; font-style:italic ; border-style:none solid solid none ;}
+table.mmap td.addr { font-family:courier ; font-size:9px ; text-align:right ;}
+table.connectionboxes { border-collapse:separate ; border-spacing:0px ; font-family:arial ;}
+table.connectionboxes td.from { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.to { font-size:9px ; font-style:italic ; vertical-align:top ; text-align:right ;}
+table.connectionboxes td.lefthandwire { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:right ;}
+table.connectionboxes td.righthandwire { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.righthandlabel { font-size:11px ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.neighbor { padding:3px ; border:1px solid black ; font-size: 11px ; background:#e8e8e8 ; vertical-align:center ; text-align:center ;}
+table.connectionboxes td.main { padding:8px ; border:1px solid black ; font-size: 14px ; font-weight:bold ; background:#ffffff ; vertical-align:center ; text-align:center ;}
+.parametersbox { border:1px solid #d0d0d0 ; display:inline-block ; max-height:160px ; overflow:auto ; width:360px ; font-size:10px ;}
+.flowbox { display:inline-block ;}
+.parametersbox table { font-size:10px ;}
+td.parametername { font-style:italic ;}
+td.parametervalue { font-weight:bold ;}
+div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; border-top:1px solid #707070 ; border-bottom:1px solid #707070 ; padding:20px ; margin:20px ; width:auto ;}</style>
+ </head>
+ <body>
+  <table class="topTitle">
+   <tr>
+    <td class="l">qsys_led_tb</td>
+    <td class="r">qsys_led_tb
+     <br/>1.0
+     <br/>
+    </td>
+   </tr>
+  </table>
+  <table class="blueBar">
+   <tr>
+    <td class="l">2011.12.10.02:26:28</td>
+    <td class="r">Generation Report</td>
+   </tr>
+  </table>
+  <table class="items">
+   <tr>
+    <td class="label">Output Directory</td>
+    <td class="mono">C:/workspace/qsys_led/qsys_led/testbench/</td>
+   </tr>
+   <tr>
+    <td class="label">Files</td>
+    <td class="mono">C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/qsys_led_tb.vhd (984 bytes VHDL)
+     <br/>
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led.vhd (18923 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_pio_0.vhd (3528 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0.vhd (23375 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0_jtag_phy_embedded_in_jtag_master.vho (1506348 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0_timing_adt.vho (1922 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0_fifo.vho (27488 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0_b2p.vho (27522 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0_p2b.vho (59697 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0_transacto.vho (675816 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0_b2p_adapter.vho (3452 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0_p2b_adapter.vho (2333 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_master_0_master_translator.vho (2936 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_pio_0_s1_translator.vho (29980 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/qsys_led_rst_controller.vho (5121 bytes VHDL)
+     <br/>C:/workspace/qsys_led/qsys_led/testbench/qsys_led_tb/simulation/submodules/altera_avalon_clock_source.vhd (1703 bytes VHDL)
+     <br/>
+    </td>
+   </tr>
+   <tr>
+    <td class="label">Instantiations</td>
+    <td class="mono">
+     <table class="grid">
+      <tr>
+       <td><b>qsys_led_tb</b>
+        <br/>qsys_led_tb v1.0</td>
+       <td><b>qsys_led</b> as qsys_led_inst
+        <br/><b>altera_avalon_clock_source</b> as qsys_led_inst_clk_bfm
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td><b>qsys_led</b>
+        <br/>qsys_led v1.0</td>
+       <td><b>qsys_led_pio_0</b> as pio_0
+        <br/><b>qsys_led_master_0</b> as master_0
+        <br/><b>qsys_led_master_0_master_translator</b> as master_0_master_translator
+        <br/><b>qsys_led_pio_0_s1_translator</b> as pio_0_s1_translator
+        <br/><b>qsys_led_rst_controller</b> as rst_controller
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td><b>altera_avalon_clock_source</b>
+        <br/>altera_avalon_clock_source v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_pio_0</b>
+        <br/>altera_avalon_pio v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0</b>
+        <br/>altera_jtag_avalon_master v11.1</td>
+       <td><b>qsys_led_master_0_jtag_phy_embedded_in_jtag_master</b> as jtag_phy_embedded_in_jtag_master
+        <br/><b>qsys_led_master_0_timing_adt</b> as timing_adt
+        <br/><b>qsys_led_master_0_fifo</b> as fifo
+        <br/><b>qsys_led_master_0_b2p</b> as b2p
+        <br/><b>qsys_led_master_0_p2b</b> as p2b
+        <br/><b>qsys_led_master_0_transacto</b> as transacto
+        <br/><b>qsys_led_master_0_b2p_adapter</b> as b2p_adapter
+        <br/><b>qsys_led_master_0_p2b_adapter</b> as p2b_adapter
+        <br/>
+       </td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0_master_translator</b>
+        <br/>altera_merlin_master_translator v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_pio_0_s1_translator</b>
+        <br/>altera_merlin_slave_translator v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_rst_controller</b>
+        <br/>altera_reset_controller v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0_jtag_phy_embedded_in_jtag_master</b>
+        <br/>altera_jtag_dc_streaming v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0_timing_adt</b>
+        <br/>timing_adapter v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0_fifo</b>
+        <br/>altera_avalon_sc_fifo v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0_b2p</b>
+        <br/>altera_avalon_st_bytes_to_packets v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0_p2b</b>
+        <br/>altera_avalon_st_packets_to_bytes v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0_transacto</b>
+        <br/>altera_avalon_packets_to_master v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0_b2p_adapter</b>
+        <br/>channel_adapter v11.1</td>
+       <td></td>
+      </tr>
+      <tr>
+       <td><b>qsys_led_master_0_p2b_adapter</b>
+        <br/>channel_adapter v11.1</td>
+       <td></td>
+      </tr>
+     </table>
+    </td>
+   </tr>
+  </table>
+  <div style="width:100% ;  height:10px"> </div>
+  <div class="label">Generation Messages</div>
+  <div style="white-space:pre ; font-family:courier">2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.clk_src: Timing: ELA:1/0.000s
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.clk_rst: Timing: ELA:2/0.000s/0.000s
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.jtag_phy_embedded_in_jtag_master: <b>add_interface_port</b>: Added reset port <b>reset_n</b> to <b>clock_reset</b> instead of <b>clock</b>
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.jtag_phy_embedded_in_jtag_master: Timing: VAL:1/0.000s ELA:1/0.000s
+2011.12.10.02:23:57 [Warning] qsys_led_tb.qsys_led_inst.master_0.jtag_phy_embedded_in_jtag_master.resetrequest: No synchronous edges, but has associated clock
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.fifo: <b>add_interface_port</b>: Added reset port <b>reset</b> to <b>clk_reset</b> instead of <b>clk</b>
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.fifo: Timing: VAL:1/0.000s ELA:1/0.000s
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.b2p: Timing: ELA:2/0.000s/0.000s
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.p2b: Timing: ELA:2/0.000s/0.000s
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.transacto: <b>add_interface_port</b>: Added reset port <b>reset_n</b> to <b>clk_reset</b> instead of <b>clk</b>
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0.transacto: Timing: VAL:1/0.000s ELA:1/0.000s
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst.master_0: Timing: VAL:1/0.000s COM:1/0.062s
+2011.12.10.02:23:57 [Warning] qsys_led_tb.qsys_led_inst.master_0.master_reset: No synchronous edges, but has associated clock
+2011.12.10.02:23:57 [Warning] qsys_led_tb.qsys_led_inst.pio_0: <b>pio_0.external_connection</b> must be exported, or connected to a matching conduit.
+2011.12.10.02:23:57 [Info] qsys_led_tb.qsys_led_inst_clk_bfm: Elaborate: altera_clock_source
+2011.12.10.02:23:57 [Info] qsys_led_tb.qsys_led_inst_clk_bfm:            $Revision: #1 $
+2011.12.10.02:23:57 [Info] qsys_led_tb.qsys_led_inst_clk_bfm:            $Date: 2011/08/15 $
+2011.12.10.02:23:55 [Debug] qsys_led_tb.altera_avalon_clock_source: Setting TOP_LEVEL_HDL_MODULE has no effect when a generation callback is defined
+2011.12.10.02:23:55 [Debug] qsys_led_tb.altera_avalon_clock_source: If TOP_LEVEL_HDL_MODULE is defined then TOP_LEVEL_HDL_FILE should indicate which file that module is found in
+2011.12.10.02:23:55 [Debug] qsys_led_tb.altera_avalon_clock_source: When a generate simulation callback is defined a synthesis generation callback should also be defined
+2011.12.10.02:23:57 [Debug] qsys_led_tb.qsys_led_inst_clk_bfm: Timing: VAL:1/0.000s ELA:1/0.000s
+2011.12.10.02:23:57 [Info] qsys_led_tb: Generating <b>qsys_led_tb</b> "<b>qsys_led_tb</b>" for SIM_VHDL
+2011.12.10.02:23:57 [Debug] qsys_led_tb: queue size: 0 starting:qsys_led_tb "qsys_led_tb"
+2011.12.10.02:23:57 [Debug] Transform: PipelineBridgeSwap
+2011.12.10.02:23:57 [Info] pipeline_bridge_swap_transform: After transform: <b>2</b> modules, <b>1</b> connections
+2011.12.10.02:23:57 [Debug] Transform: ClockCrossingBridgeSwap
+2011.12.10.02:23:57 [Debug] Transform: QsysBetaIPSwap
+2011.12.10.02:23:57 [Debug] Transform: CustomInstructionTransform
+2011.12.10.02:23:57 [Info] No custom instruction connections, skipping transform 
+2011.12.10.02:23:57 [Debug] Transform: TristateConduitUpgradeTransform
+2011.12.10.02:23:58 [Debug] Transform: TranslatorTransform
+2011.12.10.02:23:58 [Info] No Avalon connections, skipping transform 
+2011.12.10.02:23:58 [Debug] Transform: DomainTransform
+2011.12.10.02:23:58 [Debug] Transform: RouterTransform
+2011.12.10.02:23:58 [Debug] Transform: TrafficLimiterTransform
+2011.12.10.02:23:58 [Debug] Transform: BurstTransform
+2011.12.10.02:23:58 [Debug] Transform: ResetAdaptation
+2011.12.10.02:23:58 [Debug] Transform: NetworkToSwitchTransform
+2011.12.10.02:23:58 [Debug] Transform: WidthTransform
+2011.12.10.02:23:58 [Debug] Transform: RouterTableTransform
+2011.12.10.02:23:58 [Debug] Transform: ClockCrossingTransform
+2011.12.10.02:23:58 [Debug] Transform: PipelineTransform
+2011.12.10.02:23:58 [Debug] Transform: TrafficLimiterUpdateTransform
+2011.12.10.02:23:58 [Debug] Transform: InterruptMapperTransform
+2011.12.10.02:23:58 [Debug] Transform: InterruptSyncTransform
+2011.12.10.02:23:58 [Debug] Transform: InterruptFanoutTransform
+2011.12.10.02:23:58 [Debug] qsys_led_tb: "<b>qsys_led_tb</b>" reuses <b>qsys_led</b> "<b>submodules/qsys_led</b>"
+2011.12.10.02:23:58 [Debug] qsys_led_tb: "<b>qsys_led_tb</b>" reuses <b>altera_avalon_clock_source</b> "<b>submodules/altera_avalon_clock_source</b>"
+2011.12.10.02:23:58 [Debug] qsys_led_tb: queue size: 1 starting:qsys_led "submodules/qsys_led"
+2011.12.10.02:23:58 [Debug] Transform: PipelineBridgeSwap
+2011.12.10.02:23:58 [Info] pipeline_bridge_swap_transform: After transform: <b>3</b> modules, <b>8</b> connections
+2011.12.10.02:23:58 [Debug] Transform: ClockCrossingBridgeSwap
+2011.12.10.02:23:58 [Debug] Transform: QsysBetaIPSwap
+2011.12.10.02:23:58 [Debug] Transform: CustomInstructionTransform
+2011.12.10.02:23:58 [Info] No custom instruction connections, skipping transform 
+2011.12.10.02:23:58 [Debug] Transform: TristateConduitUpgradeTransform
+2011.12.10.02:23:59 [Debug] Transform: TranslatorTransform
+2011.12.10.02:23:59 [Progress] min: 0
+2011.12.10.02:23:59 [Progress] max: 1
+2011.12.10.02:23:59 [Progress] current: 1
+2011.12.10.02:23:59 [Progress] min: 0
+2011.12.10.02:23:59 [Progress] max: 1
+2011.12.10.02:23:59 [Progress] current: 1
+2011.12.10.02:23:59 [Info] merlin_translator_transform: After transform: <b>5</b> modules, <b>16</b> connections
+2011.12.10.02:23:59 [Debug] Transform: DomainTransform
+2011.12.10.02:23:59 [Debug] Transform merlin_domain_transform not run on matched interfaces master_0.master and master_0_master_translator.avalon_anti_master_0
+2011.12.10.02:23:59 [Debug] Transform merlin_domain_transform not run on matched interfaces master_0_master_translator.avalon_universal_master_0 and pio_0_s1_translator.avalon_universal_slave_0
+2011.12.10.02:23:59 [Debug] Transform merlin_domain_transform not run on matched interfaces pio_0_s1_translator.avalon_anti_slave_0 and pio_0.s1
+2011.12.10.02:23:59 [Debug] Transform: RouterTransform
+2011.12.10.02:23:59 [Debug] Transform: TrafficLimiterTransform
+2011.12.10.02:23:59 [Debug] Transform: BurstTransform
+2011.12.10.02:23:59 [Debug] Transform: ResetAdaptation
+2011.12.10.02:23:59 [Progress] min: 0
+2011.12.10.02:23:59 [Progress] max: 1
+2011.12.10.02:23:59 [Progress] current: 1
+2011.12.10.02:23:59 [Info] reset_adaptation_transform: After transform: <b>6</b> modules, <b>15</b> connections
+2011.12.10.02:23:59 [Debug] Transform: NetworkToSwitchTransform
+2011.12.10.02:23:59 [Debug] Transform: WidthTransform
+2011.12.10.02:23:59 [Debug] Transform: RouterTableTransform
+2011.12.10.02:23:59 [Debug] Transform: ClockCrossingTransform
+2011.12.10.02:23:59 [Debug] Transform: PipelineTransform
+2011.12.10.02:23:59 [Debug] Transform: TrafficLimiterUpdateTransform
+2011.12.10.02:23:59 [Debug] Transform: InterruptMapperTransform
+2011.12.10.02:23:59 [Debug] Transform: InterruptSyncTransform
+2011.12.10.02:23:59 [Debug] Transform: InterruptFanoutTransform
+2011.12.10.02:23:59 [Debug] qsys_led_inst: "<b>qsys_led_inst</b>" reuses <b>altera_avalon_pio</b> "<b>submodules/qsys_led_pio_0</b>"
+2011.12.10.02:23:59 [Debug] qsys_led_inst: "<b>qsys_led_inst</b>" reuses <b>altera_jtag_avalon_master</b> "<b>submodules/qsys_led_master_0</b>"
+2011.12.10.02:23:59 [Debug] qsys_led_inst: "<b>qsys_led_inst</b>" reuses <b>altera_merlin_master_translator</b> "<b>submodules/qsys_led_master_0_master_translator</b>"
+2011.12.10.02:23:59 [Debug] qsys_led_inst: "<b>qsys_led_inst</b>" reuses <b>altera_merlin_slave_translator</b> "<b>submodules/qsys_led_pio_0_s1_translator</b>"
+2011.12.10.02:23:59 [Debug] qsys_led_inst: "<b>qsys_led_inst</b>" reuses <b>altera_reset_controller</b> "<b>submodules/qsys_led_rst_controller</b>"
+2011.12.10.02:23:59 [Info] qsys_led_inst: "<b>qsys_led_tb</b>" instantiated <b>qsys_led</b> "<b>qsys_led_inst</b>"
+2011.12.10.02:23:59 [Debug] qsys_led_tb: queue size: 5 starting:altera_avalon_clock_source "submodules/altera_avalon_clock_source"
+2011.12.10.02:23:59 [Info] qsys_led_inst_clk_bfm: "<b>qsys_led_tb</b>" instantiated <b>altera_avalon_clock_source</b> "<b>qsys_led_inst_clk_bfm</b>"
+2011.12.10.02:23:59 [Debug] qsys_led_tb: queue size: 4 starting:altera_avalon_pio "submodules/qsys_led_pio_0"
+2011.12.10.02:23:59 [Info] Starting classic module elaboration.
+2011.12.10.02:24:02 [Progress] "c:/altera/11.1/quartus/bin/jre/bin/java.exe" -Xmx512M -classpath "c:/altera/11.1/quartus/sopc_builder/bin/sopc_builder.jar;c:/altera/11.1/quartus/sopc_builder/bin/PinAssigner.jar;c:/altera/11.1/quartus/sopc_builder/bin/sopc_wizard.jar;c:/altera/11.1/quartus/sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"c:/altera/11.1/quartus/sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpathC:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0109_sopclgen  --no_splash --refresh C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0109_sopclgen/yysystem.vhd --quartus_dir="c:/altera/11.1/quartus" --sopc_perl="c:/altera/11.1/quartus/bin/perl" --sopc_lib_path="++c:/altera/11.1/quartus/../ip/altera/sopc_builder_ip+c:/altera/11.1/quartus/../ip/altera/nios2_ip"
+2011.12.10.02:24:06 [Info] Finished elaborating classic module.
+2011.12.10.02:24:06 [Progress] Executing: C:/altera/11.1/quartus//sopc_builder/bin/sopc_builder --classic --generate C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0109_sopclgen/yysystem.ptf
+2011.12.10.02:24:06 [Info] Running sopc_builder...
+2011.12.10.02:24:11 [Progress] "c:/altera/11.1/quartus/bin/jre/bin/java.exe" -Xmx512M -classpath "c:/altera/11.1/quartus/sopc_builder/bin/sopc_builder.jar;c:/altera/11.1/quartus/sopc_builder/bin/PinAssigner.jar;c:/altera/11.1/quartus/sopc_builder/bin/sopc_wizard.jar;c:/altera/11.1/quartus/sopc_builder/bin/jptf.jar" sopc_builder.sopc_builder  -d"c:/altera/11.1/quartus/sopc_builder" -notalkback=1 -projectnameyysystem.qpf -projectpathC:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0109_sopclgen  --generate C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0109_sopclgen/yysystem.vhd --quartus_dir="c:/altera/11.1/quartus" --sopc_perl="c:/altera/11.1/quartus/bin/perl" --sopc_lib_path="++c:/altera/11.1/quartus/../ip/altera/sopc_builder_ip+c:/altera/11.1/quartus/../ip/altera/nios2_ip"
+2011.12.10.02:24:16 [Progress] No .sopc_builder configuration file(!)
+2011.12.10.02:24:16 [Progress] .
+2011.12.10.02:24:19 [Progress] # 2011.12.10 02:24:19 (*) Success: sopc_builder finished.
+2011.12.10.02:24:19 [Info] pio_0: "<b>qsys_led_inst</b>" instantiated <b>altera_avalon_pio</b> "<b>pio_0</b>"
+2011.12.10.02:24:19 [Debug] qsys_led_tb: queue size: 3 starting:altera_jtag_avalon_master "submodules/qsys_led_master_0"
+2011.12.10.02:24:19 [Info] master_0: Running transform <b>AvalonTransform</b>
+2011.12.10.02:24:19 [Debug] Transform: PipelineBridgeSwap
+2011.12.10.02:24:19 [Info] pipeline_bridge_swap_transform: After transform: <b>10</b> modules, <b>25</b> connections
+2011.12.10.02:24:19 [Debug] Transform: ClockCrossingBridgeSwap
+2011.12.10.02:24:19 [Debug] Transform: QsysBetaIPSwap
+2011.12.10.02:24:19 [Debug] Transform: CustomInstructionTransform
+2011.12.10.02:24:19 [Info] No custom instruction connections, skipping transform 
+2011.12.10.02:24:19 [Debug] Transform: TristateConduitUpgradeTransform
+2011.12.10.02:24:19 [Debug] Transform: TranslatorTransform
+2011.12.10.02:24:19 [Info] No Avalon connections, skipping transform 
+2011.12.10.02:24:19 [Debug] Transform: DomainTransform
+2011.12.10.02:24:19 [Debug] Transform: RouterTransform
+2011.12.10.02:24:19 [Debug] Transform: TrafficLimiterTransform
+2011.12.10.02:24:19 [Debug] Transform: BurstTransform
+2011.12.10.02:24:19 [Debug] Transform: ResetAdaptation
+2011.12.10.02:24:19 [Debug] Transform: NetworkToSwitchTransform
+2011.12.10.02:24:19 [Debug] Transform: WidthTransform
+2011.12.10.02:24:19 [Debug] Transform: RouterTableTransform
+2011.12.10.02:24:19 [Debug] Transform: ClockCrossingTransform
+2011.12.10.02:24:19 [Debug] Transform: TrafficLimiterUpdateTransform
+2011.12.10.02:24:19 [Debug] Transform: InterruptMapperTransform
+2011.12.10.02:24:19 [Debug] Transform: InterruptSyncTransform
+2011.12.10.02:24:19 [Debug] Transform: InterruptFanoutTransform
+2011.12.10.02:24:19 [Info] master_0: Running transform <b>AvalonTransform</b> took 0.282s
+2011.12.10.02:24:19 [Debug] master_0: "<b>master_0</b>" reuses <b>altera_jtag_dc_streaming</b> "<b>submodules/qsys_led_master_0_jtag_phy_embedded_in_jtag_master</b>"
+2011.12.10.02:24:19 [Debug] master_0: "<b>master_0</b>" reuses <b>timing_adapter</b> "<b>submodules/qsys_led_master_0_timing_adt</b>"
+2011.12.10.02:24:20 [Debug] master_0: "<b>master_0</b>" reuses <b>altera_avalon_sc_fifo</b> "<b>submodules/qsys_led_master_0_fifo</b>"
+2011.12.10.02:24:20 [Debug] master_0: "<b>master_0</b>" reuses <b>altera_avalon_st_bytes_to_packets</b> "<b>submodules/qsys_led_master_0_b2p</b>"
+2011.12.10.02:24:20 [Debug] master_0: "<b>master_0</b>" reuses <b>altera_avalon_st_packets_to_bytes</b> "<b>submodules/qsys_led_master_0_p2b</b>"
+2011.12.10.02:24:20 [Debug] master_0: "<b>master_0</b>" reuses <b>altera_avalon_packets_to_master</b> "<b>submodules/qsys_led_master_0_transacto</b>"
+2011.12.10.02:24:20 [Debug] master_0: "<b>master_0</b>" reuses <b>channel_adapter</b> "<b>submodules/qsys_led_master_0_b2p_adapter</b>"
+2011.12.10.02:24:20 [Debug] master_0: "<b>master_0</b>" reuses <b>channel_adapter</b> "<b>submodules/qsys_led_master_0_p2b_adapter</b>"
+2011.12.10.02:24:20 [Info] master_0: "<b>qsys_led_inst</b>" instantiated <b>altera_jtag_avalon_master</b> "<b>master_0</b>"
+2011.12.10.02:24:20 [Debug] qsys_led_tb: queue size: 10 starting:altera_merlin_master_translator "submodules/qsys_led_master_0_master_translator"
+2011.12.10.02:24:20 [Info] master_0_master_translator: Generating VHDL simulation model
+2011.12.10.02:24:20 [Debug] set ALTERA_HW_TCL_KEEP_TEMP_FILES=1 to retain temp files
+2011.12.10.02:24:20 [Debug] Command: C:/altera/11.1/quartus/bin/quartus_map.exe C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\alt5317_4534812194480137535.dir\0111_sopcqmap\qsys_led_master_0_master_translator.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0111_sopcqmap/qsys_led_master_0_master_translator.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0111_sopcqmap/altera_merlin_master_translator.sv --simgen --simgen_parameter=CBX_HDL_LANGUAGE=VHDL,SIMGEN_RAND_POWERUP_FFS=OFF,SIMGEN_OBFUSCATE=OFF,SIMGEN_MAX_TULIP_COUNT=0 --family=Cyclone III
+2011.12.10.02:24:36 [Warning] Parallel compilation is not licensed and has been disabled
+2011.12.10.02:24:36 [Debug] Command took 16.594s
+2011.12.10.02:24:36 [Info] master_0_master_translator: Generated simulation model qsys_led_master_0_master_translator.vho
+2011.12.10.02:24:36 [Info] master_0_master_translator: "<b>qsys_led_inst</b>" instantiated <b>altera_merlin_master_translator</b> "<b>master_0_master_translator</b>"
+2011.12.10.02:24:36 [Debug] qsys_led_tb: queue size: 9 starting:altera_merlin_slave_translator "submodules/qsys_led_pio_0_s1_translator"
+2011.12.10.02:24:36 [Info] pio_0_s1_translator: Generating VHDL simulation model
+2011.12.10.02:24:36 [Debug] set ALTERA_HW_TCL_KEEP_TEMP_FILES=1 to retain temp files
+2011.12.10.02:24:36 [Debug] Command: C:/altera/11.1/quartus/bin/quartus_map.exe C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\alt5317_4534812194480137535.dir\0114_sopcqmap\qsys_led_pio_0_s1_translator.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0114_sopcqmap/qsys_led_pio_0_s1_translator.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0114_sopcqmap/altera_merlin_slave_translator.sv --simgen --simgen_parameter=CBX_HDL_LANGUAGE=VHDL,SIMGEN_RAND_POWERUP_FFS=OFF,SIMGEN_OBFUSCATE=OFF,SIMGEN_MAX_TULIP_COUNT=0 --family=Cyclone III
+2011.12.10.02:24:53 [Warning] Parallel compilation is not licensed and has been disabled
+2011.12.10.02:24:53 [Debug] Command took 16.578s
+2011.12.10.02:24:53 [Info] pio_0_s1_translator: Generated simulation model qsys_led_pio_0_s1_translator.vho
+2011.12.10.02:24:53 [Info] pio_0_s1_translator: "<b>qsys_led_inst</b>" instantiated <b>altera_merlin_slave_translator</b> "<b>pio_0_s1_translator</b>"
+2011.12.10.02:24:53 [Debug] qsys_led_tb: queue size: 8 starting:altera_reset_controller "submodules/qsys_led_rst_controller"
+2011.12.10.02:24:53 [Info] rst_controller: Generating VHDL simulation model
+2011.12.10.02:24:53 [Debug] set ALTERA_HW_TCL_KEEP_TEMP_FILES=1 to retain temp files
+2011.12.10.02:24:53 [Debug] Command: C:/altera/11.1/quartus/bin/quartus_map.exe C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\alt5317_4534812194480137535.dir\0117_sopcqmap\qsys_led_rst_controller.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0117_sopcqmap/qsys_led_rst_controller.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0117_sopcqmap/altera_reset_controller.v --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0117_sopcqmap/altera_reset_synchronizer.v --simgen --simgen_parameter=CBX_HDL_LANGUAGE=VHDL,SIMGEN_RAND_POWERUP_FFS=OFF,SIMGEN_OBFUSCATE=OFF,SIMGEN_MAX_TULIP_COUNT=0 --family=Cyclone III
+2011.12.10.02:25:08 [Warning] Parallel compilation is not licensed and has been disabled
+2011.12.10.02:25:08 [Debug] Command took 14.985s
+2011.12.10.02:25:08 [Info] rst_controller: Generated simulation model qsys_led_rst_controller.vho
+2011.12.10.02:25:08 [Info] rst_controller: "<b>qsys_led_inst</b>" instantiated <b>altera_reset_controller</b> "<b>rst_controller</b>"
+2011.12.10.02:25:08 [Debug] qsys_led_tb: queue size: 7 starting:altera_jtag_dc_streaming "submodules/qsys_led_master_0_jtag_phy_embedded_in_jtag_master"
+2011.12.10.02:25:08 [Info] jtag_phy_embedded_in_jtag_master: Generating VHDL simulation model
+2011.12.10.02:25:08 [Debug] set ALTERA_HW_TCL_KEEP_TEMP_FILES=1 to retain temp files
+2011.12.10.02:25:08 [Debug] Command: C:/altera/11.1/quartus/bin/quartus_sh.exe -t C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0120_sopcqmap/qsys_led_master_0_jtag_phy_embedded_in_jtag_master_setup.tcl
+2011.12.10.02:25:08 [Debug] Command: C:/altera/11.1/quartus/bin/quartus_map.exe qsys_led_master_0_jtag_phy_embedded_in_jtag_master --simgen --simgen_parameter=CBX_HDL_LANGUAGE=VHDL,SIMGEN_RAND_POWERUP_FFS=OFF,SIMGEN_OBFUSCATE=OFF,SIMGEN_MAX_TULIP_COUNT=0 --family=Cyclone III
+2011.12.10.02:25:14 [Debug] Command took 5.641s
+2011.12.10.02:25:23 [Warning] Parallel compilation is not licensed and has been disabled
+2011.12.10.02:25:23 [Debug] Command took 8.671s
+2011.12.10.02:25:23 [Info] jtag_phy_embedded_in_jtag_master: Generated simulation model qsys_led_master_0_jtag_phy_embedded_in_jtag_master.vho
+2011.12.10.02:25:23 [Info] jtag_phy_embedded_in_jtag_master: "<b>master_0</b>" instantiated <b>altera_jtag_dc_streaming</b> "<b>jtag_phy_embedded_in_jtag_master</b>"
+2011.12.10.02:25:23 [Debug] qsys_led_tb: queue size: 6 starting:timing_adapter "submodules/qsys_led_master_0_timing_adt"
+2011.12.10.02:25:34 [Info] timing_adt: "<b>master_0</b>" instantiated <b>timing_adapter</b> "<b>timing_adt</b>"
+2011.12.10.02:25:34 [Debug] qsys_led_tb: queue size: 5 starting:altera_avalon_sc_fifo "submodules/qsys_led_master_0_fifo"
+2011.12.10.02:25:34 [Info] fifo: Generating VHDL simulation model
+2011.12.10.02:25:34 [Debug] set ALTERA_HW_TCL_KEEP_TEMP_FILES=1 to retain temp files
+2011.12.10.02:25:34 [Debug] Command: C:/altera/11.1/quartus/bin/quartus_map.exe C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\alt5317_4534812194480137535.dir\0125_sopcqmap\qsys_led_master_0_fifo.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0125_sopcqmap/qsys_led_master_0_fifo.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0125_sopcqmap/altera_avalon_sc_fifo.v --simgen --simgen_parameter=CBX_HDL_LANGUAGE=VHDL,SIMGEN_RAND_POWERUP_FFS=OFF,SIMGEN_OBFUSCATE=OFF,SIMGEN_MAX_TULIP_COUNT=0 --family=Cyclone III
+2011.12.10.02:25:43 [Warning] Parallel compilation is not licensed and has been disabled
+2011.12.10.02:25:43 [Debug] Command took 9.281s
+2011.12.10.02:25:43 [Info] fifo: Generated simulation model qsys_led_master_0_fifo.vho
+2011.12.10.02:25:43 [Info] fifo: "<b>master_0</b>" instantiated <b>altera_avalon_sc_fifo</b> "<b>fifo</b>"
+2011.12.10.02:25:43 [Debug] qsys_led_tb: queue size: 4 starting:altera_avalon_st_bytes_to_packets "submodules/qsys_led_master_0_b2p"
+2011.12.10.02:25:43 [Info] b2p: Generating VHDL simulation model
+2011.12.10.02:25:43 [Debug] set ALTERA_HW_TCL_KEEP_TEMP_FILES=1 to retain temp files
+2011.12.10.02:25:43 [Debug] Command: C:/altera/11.1/quartus/bin/quartus_map.exe C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\alt5317_4534812194480137535.dir\0128_sopcqmap\qsys_led_master_0_b2p.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0128_sopcqmap/qsys_led_master_0_b2p.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0128_sopcqmap/altera_avalon_st_bytes_to_packets.v --simgen --simgen_parameter=CBX_HDL_LANGUAGE=VHDL,SIMGEN_RAND_POWERUP_FFS=OFF,SIMGEN_OBFUSCATE=OFF,SIMGEN_MAX_TULIP_COUNT=0 --family=Cyclone III
+2011.12.10.02:25:51 [Warning] Parallel compilation is not licensed and has been disabled
+2011.12.10.02:25:51 [Debug] Command took 7.781s
+2011.12.10.02:25:51 [Info] b2p: Generated simulation model qsys_led_master_0_b2p.vho
+2011.12.10.02:25:51 [Info] b2p: "<b>master_0</b>" instantiated <b>altera_avalon_st_bytes_to_packets</b> "<b>b2p</b>"
+2011.12.10.02:25:51 [Debug] qsys_led_tb: queue size: 3 starting:altera_avalon_st_packets_to_bytes "submodules/qsys_led_master_0_p2b"
+2011.12.10.02:25:51 [Info] p2b: Generating VHDL simulation model
+2011.12.10.02:25:51 [Debug] set ALTERA_HW_TCL_KEEP_TEMP_FILES=1 to retain temp files
+2011.12.10.02:25:51 [Debug] Command: C:/altera/11.1/quartus/bin/quartus_map.exe C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\alt5317_4534812194480137535.dir\0131_sopcqmap\qsys_led_master_0_p2b.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0131_sopcqmap/qsys_led_master_0_p2b.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0131_sopcqmap/altera_avalon_st_packets_to_bytes.v --simgen --simgen_parameter=CBX_HDL_LANGUAGE=VHDL,SIMGEN_RAND_POWERUP_FFS=OFF,SIMGEN_OBFUSCATE=OFF,SIMGEN_MAX_TULIP_COUNT=0 --family=Cyclone III
+2011.12.10.02:26:01 [Warning] Parallel compilation is not licensed and has been disabled
+2011.12.10.02:26:01 [Debug] Command took 10.187s
+2011.12.10.02:26:02 [Info] p2b: Generated simulation model qsys_led_master_0_p2b.vho
+2011.12.10.02:26:02 [Info] p2b: "<b>master_0</b>" instantiated <b>altera_avalon_st_packets_to_bytes</b> "<b>p2b</b>"
+2011.12.10.02:26:02 [Debug] qsys_led_tb: queue size: 2 starting:altera_avalon_packets_to_master "submodules/qsys_led_master_0_transacto"
+2011.12.10.02:26:02 [Info] transacto: Generating VHDL simulation model
+2011.12.10.02:26:02 [Debug] set ALTERA_HW_TCL_KEEP_TEMP_FILES=1 to retain temp files
+2011.12.10.02:26:02 [Debug] Command: C:/altera/11.1/quartus/bin/quartus_map.exe C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\alt5317_4534812194480137535.dir\0134_sopcqmap\qsys_led_master_0_transacto.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0134_sopcqmap/qsys_led_master_0_transacto.vhd --source=C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/alt5317_4534812194480137535.dir/0134_sopcqmap/altera_avalon_packets_to_master.v --simgen --simgen_parameter=CBX_HDL_LANGUAGE=VHDL,SIMGEN_RAND_POWERUP_FFS=OFF,SIMGEN_OBFUSCATE=OFF,SIMGEN_MAX_TULIP_COUNT=0 --family=Cyclone III
+2011.12.10.02:26:16 [Warning] Parallel compilation is not licensed and has been disabled
+2011.12.10.02:26:16 [Debug] Command took 13.531s
+2011.12.10.02:26:16 [Info] transacto: Generated simulation model qsys_led_master_0_transacto.vho
+2011.12.10.02:26:16 [Info] transacto: "<b>master_0</b>" instantiated <b>altera_avalon_packets_to_master</b> "<b>transacto</b>"
+2011.12.10.02:26:16 [Debug] qsys_led_tb: queue size: 1 starting:channel_adapter "submodules/qsys_led_master_0_b2p_adapter"
+2011.12.10.02:26:16 [Info] b2p_adapter: Starting generation. 
+2011.12.10.02:26:16 [Info] b2p_adapter: Starting functional simulation model generation. 
+2011.12.10.02:26:23 [Info] b2p_adapter: "<b>master_0</b>" instantiated <b>channel_adapter</b> "<b>b2p_adapter</b>"
+2011.12.10.02:26:23 [Debug] qsys_led_tb: queue size: 0 starting:channel_adapter "submodules/qsys_led_master_0_p2b_adapter"
+2011.12.10.02:26:23 [Info] p2b_adapter: Starting generation. 
+2011.12.10.02:26:23 [Info] p2b_adapter: Starting functional simulation model generation. 
+2011.12.10.02:26:28 [Info] p2b_adapter: "<b>master_0</b>" instantiated <b>channel_adapter</b> "<b>p2b_adapter</b>"
+2011.12.10.02:26:28 [Info] qsys_led_tb: Done <b>qsys_led_tb</b>" with 16 modules, 16 files, 2391128 bytes
+</div>
+  <div style="width:100% ; background:#eee ; height:10px"> </div>
+ </body>
+</html>
